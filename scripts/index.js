@@ -24,31 +24,52 @@ login = () => {
       const faqSection = document.getElementById("faq-section");
       faqSection.classList.remove("hidden");
     } else {
-      alert("Invalid password!! please enter 123456");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Invalid password! Please inter 123456",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     }
   } else {
-    alert("Please enter your name");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please enter your name or user-id",
+      footer: '<a href="#">Why do I have this issue?</a>',
+    });
   }
 };
 
 // logout event
 logout = () => {
-  const banner = document.getElementById("banner");
-  banner.classList.remove("hidden");
+  Swal.fire({
+    title: "Do you want to logout?",
+    showDenyButton: true,
+    confirmButtonText: "Yes",
+    denyButtonText: `No`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire("Logout successfully!", "", "success");
+      const banner = document.getElementById("banner");
+      banner.classList.remove("hidden");
 
-  const navbar = document.getElementById("header");
-  navbar.classList.add("hidden");
+      const navbar = document.getElementById("header");
+      navbar.classList.add("hidden");
 
-  const vocabularySection = document.getElementById("vocabulary-section");
-  vocabularySection.classList.add("hidden");
+      const vocabularySection = document.getElementById("vocabulary-section");
+      vocabularySection.classList.add("hidden");
 
-  const faqSection = document.getElementById("faq-section");
-  faqSection.classList.add("hidden");
-  // empty user name
-  document.getElementById("user-id").value="";
-  
-  // empty password
-  document.getElementById("password").value="";
+      const faqSection = document.getElementById("faq-section");
+      faqSection.classList.add("hidden");
+      // empty user name
+      document.getElementById("user-id").value = "";
+
+      // empty password
+      document.getElementById("password").value = "";
+    } 
+  });
 };
 
 // show loader
@@ -233,11 +254,11 @@ const displayWordDetails = (data) => {
   });
 };
 
-// pronunciation sound 
+// pronunciation sound
 function pronounceWord(word) {
   // console.log(word);
   const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = 'en-EN'; // English
+  utterance.lang = "en-EN"; // English
   window.speechSynthesis.speak(utterance);
 }
 
