@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PH-ASSIGNMENT-6</title>
+    <!-- tailwind, daisyui and sweet alert cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .poppins-font {
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+      }
+      .hind-siliguri-font {
+        font-family: "Hind Siliguri", sans-serif;
+        font-style: normal;
+      }
+      .tiro-bangla-font {
+        font-family: "Tiro Bangla", serif;
+        font-style: normal;
+      }
+      /* active class for btn */
+      .active {
+        background-color: #422ad5;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="poppins-font relative">
+    <!-- header section -->
+    <header
+      id="header"
+      class="bg-gradient-to-br from-[#ffffff30] to-[#0000000c] border-b-2 border-gray-300 sticky top-0 z-10 backdrop-blur-sm hidden"
+    >
+      <!-- navbar section -->
+      <nav
+        class="w-11/12 mx-auto flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center py-7"
+      >
+        <!-- logo -->
+        <div class="flex items-center">
+          <h2 class="text-xl font-semibold">English</h2>
+          <img src="./assets/logo.png" alt="logo" />
+          <h2 class="tiro-bangla-font text-xl">জানালা</h2>
+        </div>
+
+        <!-- button container -->
+        <div class="flex gap-4">
+          <a href="#faq-section"
+            ><button
+              class="btn border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+                />
+              </svg>
+              FAQ
+            </button></a
+          >
+          <a href="#vocabulary-section">
+            <button
+              class="btn border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+                />
+              </svg>
+
+              Learn
+            </button>
+          </a>
+          <button
+            onclick="logout()"
+            class="btn border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
+              />
+            </svg>
+
+            Logout
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="w-11/12 mx-auto space-y-52 relative z-0">
+      <!-- hero section -->
+      <section
+        id="banner"
+        class="flex flex-col md:flex-row md:justify-between md:items-center mt-3 md:mt-0"
+      >
+        <!-- text and form container -->
+        <div class="space-y-6 md:w-1/2">
+          <h2 class="text-5xl font-bold">
+            <span class="text-sky-400">English</span> is Easy!!
+          </h2>
+          <p
+            class="hind-siliguri-font text-2xl text-[#18181B] font-medium md:max-w-[727px]"
+          >
+            আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+            আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
+            অন্য একটি Level এ
+          </p>
+
+          <!-- login form -->
+          <div class="space-y-5">
+            <input
+              id="user-id"
+              type="text"
+              placeholder="Enter Your Name"
+              class="input block focus:outline-none"
+            />
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter login code(123456)"
+              class="input block remove-arrow focus:outline-none"
+            />
+            <button onclick="login()" class="btn text-white bg-[#422AD5]">
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        <!-- img container -->
+        <div class="">
+          <img class="w-full" src="./assets/hero-student.png" alt="" />
+        </div>
+      </section>
+
+      <!-- Vocabularies section -->
+      <section
+        id="vocabulary-section"
+        class="scroll-mt-40 md:scroll-mt-32 mt-6 hidden"
+      >
+        <!-- title -->
+        <h2 class="text-4xl text-center font-bold">
+          <span class="text-sky-400">Let's</span> Learn Vocabularies
+        </h2>
+        <!-- lesson btn container -->
+        <div
+          id="btn-container"
+          class="flex flex-wrap justify-center gap-3 mt-10"
+        ></div>
+
+        <!-- loading spinner -->
+        <div class="flex justify-center relative top-16">
+          <span
+            id="loader"
+            class="loading loading-dots loading-xl hidden"
+          ></span>
+        </div>
+        <!-- lessons container -->
+        <div
+          id="lessons-container"
+          class="bg-[#F8F8F8] mt-10 py-16 px-4 md:px-8 rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"
+        >
+          <div class="col-span-3">
+            <p class="hind-siliguri-font text-sm text-[#79716B] text-center">
+              আপনি এখনো কোন Lesson Select করেন নি
+            </p>
+            <h2 class="hind-siliguri-font text-3xl font-medium text-center">
+              একটি Lesson Select করুন।
+            </h2>
+          </div>
+          <div id="vocabulary-card"></div>
+        </div>
+
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="Show_details" class="modal">
+          <div class="modal-box">
+            <div
+              id="details-container"
+              class="border border-gray-200 p-3"
+            ></div>
+            <div class="mt-4">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn btn-primary">Complete Learning</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </section>
+
+      <!-- faq section -->
+      <section id="faq-section" class="scroll-mt-40 md:scroll-mt-32 hidden">
+        <!-- title -->
+        <h2 class="text-4xl text-center font-bold">
+          <span class="text-sky-400">Frequently</span> Asked Questions
+        </h2>
+        <!-- faqs -->
+        <div class="mt-20 space-y-5">
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title font-semibold">
+              1. the difference between var, let, and const?
+            </div>
+            <div class="collapse-content text-sm">
+              In JavaScript var, let and const differ in scope, hoisting. var is
+              function-scope, can be redeclared and is hoisted with undefined,
+              making it less reliable. let is block-scoped can be updated but
+              not redeclared and is hoisted without initialization. const is
+              also block-scoped but cannot be reassigned or redeclared, though
+              object properties can be modified. Use let for changing values,
+              const for constants and avoid var.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-semibold">
+              2. The difference between map(), forEach(), and filter()?
+            </div>
+            <div class="collapse-content text-sm">
+              In JavaScript map(), forEach() and filter() iterate over arrays
+              but serve different purposes. map() creates a new array by
+              transforming elements, forEach() executes a function without
+              returning a new array and filter() returns a new array with
+              elements that meet a condition. Use map() for modification,
+              forEach() for side effects and filter() for selection.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-semibold">
+              3. Explain arrow functions and how they are different from regular
+              functions?
+            </div>
+            <div class="collapse-content text-sm">
+              Arrow function in JavaScript are shorter and inherit this form
+              their scope, unlike regular function, which have their own this.
+              They also lack arguments and cannot be used as constructors.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-semibold">
+              4. How JavaScript Promises work?
+            </div>
+            <div class="collapse-content text-sm">
+              JavaScript Promises handle asynchronous operations by representing
+              a value that may be available in the future. A Promise has three
+              states pending, resolve and reject. It uses .then() for success,
+              .catch for errors and .finally() for cleanup. This avoids callback
+              hell and makes async code cleaner
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-semibold">
+              5. How closures work in JavaScript?
+            </div>
+            <div class="collapse-content text-sm">
+              Closures in JavaScript allow a function to remember and access
+              variables form its outer scope even after the outer function has
+              finished executing. This happens because inner function retain a
+              reference to their lexical scope. Closures are useful for data
+              privacy, maintaining state, and creating function factories.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer section -->
+    <footer class="mt-48 border-t-2 border-yellow-300 py-24">
+      <div
+        class="w-11/12 mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-3 md:gap-0"
+      >
+        <div>
+          <div class="flex items-center">
+            <h2 class="text-xl font-semibold">English</h2>
+            <img src="./assets/logo.png" alt="logo" />
+            <h2 class="tiro-bangla-font text-xl">জানালা</h2>
+          </div>
+          <p class="hind-siliguri-font text-xl font-medium mt-5">
+            ইংরেজি শিখুন সহজে
+          </p>
+          <p class="hind-siliguri-font">
+            Providing ED-Tech Applications since 2025
+          </p>
+        </div>
+        <!-- social link -->
+        <div>
+          <p class="text-[#18181b79] text-sm font-semibold">Follow us</p>
+          <div class="flex items-center gap-4 mt-4">
+            <a target="_blank" href="https://www.facebook.com/programmingHero"
+              ><img src="./assets/fb-thumb.png" alt="fb logo"
+            /></a>
+            <a
+              target="_blank"
+              href="https://www.youtube.com/@ProgrammingHeroCommunity"
+              ><img src="./assets/youtube-thumb.png" alt="youtube logo"
+            /></a>
+            <a target="_blank" href="https://www.instagram.com/programminghero/"
+              ><img src="./assets/instagram-thumb.png" alt="instagram logo"
+            /></a>
+            <a target="_blank" href="https://github.com/programminghero1"><img src="./assets/github-thumb.png" alt="github-icon"></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
