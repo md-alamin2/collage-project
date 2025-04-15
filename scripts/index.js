@@ -46,8 +46,8 @@ logout = () => {
   Swal.fire({
     title: "Do you want to logout?",
     showDenyButton: true,
-    confirmButtonText: "Yes",
-    denyButtonText: `No`,
+    denyButtonText: `Yes`,
+    confirmButtonText: "No",
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
