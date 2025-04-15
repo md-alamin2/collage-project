@@ -190,10 +190,12 @@
 
         <!-- loading spinner -->
         <div class="flex justify-center relative top-16">
-          <span
-            id="loader"
-            class="loading loading-dots loading-xl hidden"
-          ></span>
+          <div id="loader" class="flex w-52 flex-col gap-4 hidden">
+            <div class="skeleton h-32 w-full"></div>
+            <div class="skeleton h-4 w-28"></div>
+            <div class="skeleton h-4 w-full"></div>
+            <div class="skeleton h-4 w-full"></div>
+          </div>
         </div>
         <!-- lessons container -->
         <div
